@@ -1,13 +1,37 @@
-<!-- page2.html -->
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>الصفحة المخفية</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hidden Page</title>
 </head>
 <body>
-    <h1>مرحبًا بك في الصفحة المخفية</h1>
-    <p>لقد عثرت على الصفحة المخفية بنجاح!</p>
+  <h2>Login to Access Hidden Content</h2>
+  <form id="loginForm">
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" required><br><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br><br>
+
+    <input type="submit" value="Login">
+  </form>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // منع إعادة تحميل الصفحة
+
+      var username = document.getElementById('username').value;
+      var password = document.getElementById('password').value;
+
+      // تحقق من البيانات المدخلة
+      if (username === 'admin' && password === 'password123') {
+        // إذا كانت صحيحة، انتقل إلى صفحة النجاح
+        window.location.href = 'succ.html';
+      } else {
+        alert('Invalid username or password. Please try again.');
+      }
+    });
+  </script>
 </body>
 </html>
